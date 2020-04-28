@@ -175,4 +175,4 @@
   qxl.tutorial.view.SelectionWindow.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=SelectionWindow.js.map?dt=1588102606837
+//# sourceMappingURL=SelectionWindow.js.map?dt=1588104177114

@@ -373,4 +373,4 @@
   qxl.tutorial.Application.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Application.js.map?dt=1588102606568
+//# sourceMappingURL=Application.js.map?dt=1588104176850

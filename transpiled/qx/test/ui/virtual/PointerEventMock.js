@@ -55,4 +55,4 @@
   qx.test.ui.virtual.PointerEventMock.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=PointerEventMock.js.map?dt=1588102583174
+//# sourceMappingURL=PointerEventMock.js.map?dt=1588104153966

@@ -428,11 +428,6 @@
         "width": 14,
         "height": 14
       },
-      "source/Modern/radio-checked-invalid.png": {
-        "resourcePath": "resourcePath",
-        "width": 14,
-        "height": 14
-      },
       "source/Modern/radio-checked-pressed-invalid.png": {
         "resourcePath": "resourcePath",
         "width": 14,
@@ -552,11 +547,6 @@
         "resourcePath": "resourcePath",
         "width": 20,
         "height": 45
-      },
-      "source/Modern/tab-button-right-active.png": {
-        "resourcePath": "resourcePath",
-        "width": 22,
-        "height": 47
       },
       "source/Modern/tab-button-right-inactive.png": {
         "resourcePath": "resourcePath",
@@ -682,6 +672,16 @@
         "resourcePath": "resourcePath",
         "width": 369,
         "height": 15
+      },
+      "source/Modern/radio-checked-invalid.png": {
+        "resourcePath": "resourcePath",
+        "width": 14,
+        "height": 14
+      },
+      "source/Modern/tab-button-right-active.png": {
+        "resourcePath": "resourcePath",
+        "width": 22,
+        "height": 47
       },
       "qx/decoration/Classic/arrows-combined.gif": {
         "resourcePath": "resourcePath",
@@ -5257,6 +5257,11 @@
         "width": 11,
         "height": 11
       },
+      "qx/decoration/Classic/table/boolean-true.png": {
+        "resourcePath": "resourcePath",
+        "width": 11,
+        "height": 11
+      },
       "qx/decoration/Classic/table/descending-invert.png": {
         "resourcePath": "resourcePath",
         "width": 10,
@@ -6180,11 +6185,6 @@
         "resourcePath": "resourcePath",
         "width": 6,
         "height": 6
-      },
-      "qx/decoration/Classic/table/boolean-true.png": {
-        "resourcePath": "resourcePath",
-        "width": 11,
-        "height": 11
       },
       "qx/decoration/Modern/form/tooltip-error-br.png": {
         "resourcePath": "resourcePath",
@@ -7678,10 +7678,10 @@
       "qx/website/scss/ui/_datepicker.scss": {
         "resourcePath": "resourcePath"
       },
-      "qx/website/scss/ui/_rating.scss": {
+      "qx/website/scss/ui/_menu.scss": {
         "resourcePath": "resourcePath"
       },
-      "qx/website/scss/ui/_menu.scss": {
+      "qx/website/scss/ui/_rating.scss": {
         "resourcePath": "resourcePath"
       },
       "qx/website/scss/ui/_slider.scss": {
@@ -8771,17 +8771,17 @@
         "width": 128,
         "height": 128
       },
-      "qx/icon/Oxygen/128/status/dialog-password.png": {
-        "resourcePath": "resourcePath",
-        "width": 128,
-        "height": 128
-      },
       "qx/icon/Oxygen/128/status/dialog-warning.png": {
         "resourcePath": "resourcePath",
         "width": 128,
         "height": 128
       },
       "qx/icon/Oxygen/128/status/image-loading.png": {
+        "resourcePath": "resourcePath",
+        "width": 128,
+        "height": 128
+      },
+      "qx/icon/Oxygen/128/status/dialog-password.png": {
         "resourcePath": "resourcePath",
         "width": 128,
         "height": 128
@@ -20616,22 +20616,22 @@
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/apps/office-chart.png": {
-        "resourcePath": "resourcePath",
-        "width": 64,
-        "height": 64
-      },
       "qx/icon/Tango/64/apps/office-calendar.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/apps/office-draw.png": {
+      "qx/icon/Tango/64/apps/office-chart.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
       "qx/icon/Tango/64/apps/office-database.png": {
+        "resourcePath": "resourcePath",
+        "width": 64,
+        "height": 64
+      },
+      "qx/icon/Tango/64/apps/office-draw.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -20726,12 +20726,12 @@
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/apps/utilities-archiver.png": {
+      "qx/icon/Tango/64/apps/preferences-wallpaper.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/apps/preferences-wallpaper.png": {
+      "qx/icon/Tango/64/apps/utilities-archiver.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -20811,17 +20811,17 @@
         "width": 64,
         "height": 64
       },
+      "qx/icon/Tango/64/categories/development.png": {
+        "resourcePath": "resourcePath",
+        "width": 64,
+        "height": 64
+      },
       "qx/icon/Tango/64/categories/engineering.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
       "qx/icon/Tango/64/categories/games.png": {
-        "resourcePath": "resourcePath",
-        "width": 64,
-        "height": 64
-      },
-      "qx/icon/Tango/64/categories/development.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -20861,12 +20861,12 @@
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/devices/audio-input-microphone.png": {
+      "qx/icon/Tango/64/devices/audio-card.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/devices/audio-card.png": {
+      "qx/icon/Tango/64/devices/audio-input-microphone.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -20886,6 +20886,11 @@
         "width": 64,
         "height": 64
       },
+      "qx/icon/Tango/64/devices/computer.png": {
+        "resourcePath": "resourcePath",
+        "width": 64,
+        "height": 64
+      },
       "qx/icon/Tango/64/devices/display.png": {
         "resourcePath": "resourcePath",
         "width": 64,
@@ -20896,7 +20901,7 @@
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/devices/computer.png": {
+      "qx/icon/Tango/64/devices/drive-optical.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -20907,11 +20912,6 @@
         "height": 64
       },
       "qx/icon/Tango/64/devices/input-mouse.png": {
-        "resourcePath": "resourcePath",
-        "width": 64,
-        "height": 64
-      },
-      "qx/icon/Tango/64/devices/drive-optical.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -20946,12 +20946,12 @@
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/devices/printer.png": {
+      "qx/icon/Tango/64/devices/phone.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/devices/phone.png": {
+      "qx/icon/Tango/64/devices/printer.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -20991,17 +20991,17 @@
         "width": 64,
         "height": 64
       },
+      "qx/icon/Tango/64/emotes/face-plain.png": {
+        "resourcePath": "resourcePath",
+        "width": 64,
+        "height": 64
+      },
       "qx/icon/Tango/64/emotes/face-raspberry.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
       "qx/icon/Tango/64/emotes/face-sad.png": {
-        "resourcePath": "resourcePath",
-        "width": 64,
-        "height": 64
-      },
-      "qx/icon/Tango/64/emotes/face-plain.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -21021,12 +21021,12 @@
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/mimetypes/executable.png": {
+      "qx/icon/Tango/64/mimetypes/archive.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/mimetypes/archive.png": {
+      "qx/icon/Tango/64/mimetypes/executable.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -21131,17 +21131,22 @@
         "width": 64,
         "height": 64
       },
-      "qx/icon/Tango/64/status/dialog-information.png": {
-        "resourcePath": "resourcePath",
-        "width": 64,
-        "height": 64
-      },
       "qx/icon/Tango/64/status/dialog-error.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
       },
+      "qx/icon/Tango/64/status/dialog-information.png": {
+        "resourcePath": "resourcePath",
+        "width": 64,
+        "height": 64
+      },
       "qx/icon/Tango/64/status/dialog-password.png": {
+        "resourcePath": "resourcePath",
+        "width": 64,
+        "height": 64
+      },
+      "qx/icon/Tango/64/status/dialog-warning.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64
@@ -21152,11 +21157,6 @@
         "height": 64
       },
       "qx/icon/Tango/64/status/image-missing.png": {
-        "resourcePath": "resourcePath",
-        "width": 64,
-        "height": 64
-      },
-      "qx/icon/Tango/64/status/dialog-warning.png": {
         "resourcePath": "resourcePath",
         "width": 64,
         "height": 64

@@ -1,6 +1,6 @@
 {
   "libraries": {
-    "tutorial": "1.0.0",
+    "tutorial": "1.0.1",
     "qxl.logpane": "1.0.0",
     "qxl.versionlabel": "1.0.0",
     "qxl.playground": "1.0.0",
@@ -35508,7 +35508,7 @@
       "hasDefer": null
     },
     "qxl.tutorial.Application": {
-      "mtime": "2020-04-28T19:35:11.053Z",
+      "mtime": "2020-04-28T20:01:26.364Z",
       "libraryName": "tutorial",
       "dependsOn": {
         "qx.module.Manipulating": {
@@ -35615,7 +35615,7 @@
       "hasDefer": null
     },
     "qxl.tutorial.view.Header": {
-      "mtime": "2020-04-28T19:35:11.053Z",
+      "mtime": "2020-04-28T20:01:26.364Z",
       "libraryName": "tutorial",
       "dependsOn": {
         "qx.Class": {
@@ -35648,7 +35648,7 @@
       "hasDefer": null
     },
     "qxl.tutorial.view.Description": {
-      "mtime": "2020-04-28T19:35:11.053Z",
+      "mtime": "2020-04-28T20:01:26.364Z",
       "libraryName": "tutorial",
       "dependsOn": {
         "qx.core.Environment": {
@@ -35815,7 +35815,7 @@
       "hasDefer": null
     },
     "qxl.tutorial.view.SelectionWindow": {
-      "mtime": "2020-04-28T19:35:11.053Z",
+      "mtime": "2020-04-28T20:01:26.364Z",
       "libraryName": "tutorial",
       "dependsOn": {
         "qx.Class": {
@@ -35858,7 +35858,7 @@
       "hasDefer": null
     },
     "qxl.tutorial.view.Confirm": {
-      "mtime": "2020-04-28T19:35:11.053Z",
+      "mtime": "2020-04-28T20:01:26.364Z",
       "libraryName": "tutorial",
       "dependsOn": {
         "qx.Class": {

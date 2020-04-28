@@ -146,4 +146,4 @@
   qxl.tutorial.view.Confirm.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Confirm.js.map?dt=1588102606869
+//# sourceMappingURL=Confirm.js.map?dt=1588104177144
