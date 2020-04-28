@@ -1,0 +1,27 @@
+name: Build and Deploy
+on:
+  # run when the master branch is updated
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Install and Build
+        run: |
+          npm install @qooxdoo/compiler
+          npx qx compile --target=build -v
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB }}
+          publish_dir: ./compiled/build
