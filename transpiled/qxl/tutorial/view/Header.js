@@ -86,4 +86,4 @@
   qxl.tutorial.view.Header.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Header.js.map?dt=1588102305724
+//# sourceMappingURL=Header.js.map?dt=1588102606669

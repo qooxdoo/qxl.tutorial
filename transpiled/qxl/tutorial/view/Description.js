@@ -272,4 +272,4 @@
   qxl.tutorial.view.Description.$$dbClassInfo = $$dbClassInfo;
 })();
 
-//# sourceMappingURL=Description.js.map?dt=1588102305783
+//# sourceMappingURL=Description.js.map?dt=1588102606723
