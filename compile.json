@@ -22,17 +22,30 @@
   },
   "applications": [
     {
-      "class": "qxl.tutorial.Application", 
+      "class": "qxl.tutorial.Application",
       "theme": "qx.theme.Indigo",
       "name": "tutorial",
       "include": [
         "qx.*"
       ]
+    },
+    {
+      "class": "qxl.playground.Application",
+      "theme": "qxl.playground.theme.Theme",
+      "name": "playground",
+      "title": "Playground",
+      "bootPath": "source/boot",
+      "include": [
+        "qx.*"
+      ],
+      "exclude": [
+        "qx.test.*",
+        "qx.module.Blocker",
+        "qx.module.Placement"
+      ]
     }
-	
   ],
-	"sass": {
-	   "compiler": "legacy"
-	}
-
+  "sass": {
+    "compiler": "legacy"
+  }
 }

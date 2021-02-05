@@ -85,13 +85,13 @@ qx.Class.define("qxl.tutorial.Application",
 
       // Tutorials List
       this.__desktopTutorials = {
-        "Hello_World" : "Basic usage of a button"
-        , "Form" : "Simple login form with validation"
-        , "Single_Value_Binding" : "Binding of simple values"
+        "Hello_World" : "Basic usage of a button",
+         "Form" : "Simple login form with validation",
+         "Single_Value_Binding" : "Binding of simple values"
       };
       this.__mobileTutorials = {
-        "Hello_World" : "One page showing a button"
-      , "Pages" : "App featuring two pages"
+        "Hello_World" : "One page showing a button",
+       "Pages" : "App featuring two pages"
       };
 
       // Create main layout
@@ -264,6 +264,8 @@ qx.Class.define("qxl.tutorial.Application",
 
 
     /**
+     * @param name
+     * @param type
      * @lint ignoreDeprecated(alert)
      */
     loadTutorial : function(name, type) {
