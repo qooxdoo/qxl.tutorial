@@ -27,6 +27,9 @@
       "name": "tutorial",
       "include": [
         "qx.*"
+      ],
+      "exclude": [
+        "qx.test.*"
       ]
     },
     {
