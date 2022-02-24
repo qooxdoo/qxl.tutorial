@@ -16,7 +16,7 @@
 
 ************************************************************************ */
 /* ************************************************************************
-************************************************************************ */
+ ************************************************************************ */
 
 /**
  * @ignore(hljs.*)
@@ -27,9 +27,8 @@
  * @asset(qxl/tutorial/default.highlight.css)
  * @asset(qxl/tutorial/highlight.pack.js)
  */
-qx.Class.define("qxl.tutorial.view.Description",
-{
-  extend : qx.ui.container.Composite,
+qx.Class.define("qxl.tutorial.view.Description", {
+  extend: qx.ui.container.Composite,
 
   /*
   *****************************************************************************
@@ -37,8 +36,8 @@ qx.Class.define("qxl.tutorial.view.Description",
   *****************************************************************************
   */
 
-  construct : function() {
-    this.base(arguments);
+  construct() {
+    super();
     var layout = new qx.ui.layout.VBox();
     layout.setAlignX("center");
     this.setLayout(layout);
@@ -49,20 +48,22 @@ qx.Class.define("qxl.tutorial.view.Description",
     this.__embed.setMargin(10);
     this.__embed.setOverflow("auto", "auto");
     if (qx.core.Environment.get("device.type") !== "desktop") {
-      this.__embed.getContentElement().setStyle("WebkitOverflowScrolling", "touch");
+      this.__embed
+        .getContentElement()
+        .setStyle("WebkitOverflowScrolling", "touch");
       this.__embed.getContentElement().setStyle("touchAction", "auto");
     }
-    this.add(this.__embed, {flex: 1});
+    this.add(this.__embed, { flex: 1 });
 
     this.add(this.__createButtonContainer());
 
     var engine = qx.core.Environment.get("engine.name");
     var browserVersion = qx.core.Environment.get("browser.documentmode");
-    var isIE8OrLower = (engine === "mshtml" && parseInt(browserVersion) <= 8);
+    var isIE8OrLower = engine === "mshtml" && parseInt(browserVersion) <= 8;
 
     if (!isIE8OrLower) {
-      this.loadHljs(function() {
-        q("pre").forEach(function(el) {
+      this.loadHljs(function () {
+        q("pre").forEach(function (el) {
           q(el).addClass("javascript");
           window.hljs.highlightBlock(el);
         });
@@ -72,33 +73,30 @@ qx.Class.define("qxl.tutorial.view.Description",
     this.updateView();
   },
 
-
-  events : {
-    "run" : "qx.event.type.Event",
-    "update" : "qx.event.type.Data"
+  events: {
+    run: "qx.event.type.Event",
+    update: "qx.event.type.Data",
   },
 
-
-  properties : {
-    tutorial : {
-      apply : "_applyTutorial",
-      nullable : true
+  properties: {
+    tutorial: {
+      apply: "_applyTutorial",
+      nullable: true,
     },
 
-    step : {
-      check : "Number",
-      apply : "_applyStep",
-      event : "changeStep",
-      init: 0
-    }
+    step: {
+      check: "Number",
+      apply: "_applyStep",
+      event: "changeStep",
+      init: 0,
+    },
   },
 
+  members: {
+    __embed: null,
+    __next: null,
 
-  members : {
-    __embed : null,
-    __next : null,
-
-    _applyTutorial : function(value) {
+    _applyTutorial(value) {
       if (this.getStep() == 0) {
         this.updateView();
         this.__next.setEnabled(value && value.steps.length > 1);
@@ -107,18 +105,16 @@ qx.Class.define("qxl.tutorial.view.Description",
       }
     },
 
-
-    _applyStep : function(value) {
+    _applyStep(value) {
       this.updateView();
     },
 
-
-    loadHljs : function(clb, ctx) {
+    loadHljs(clb, ctx) {
       // load the script
       var res = "qxl/tutorial/highlight.pack.js";
       var uri = qx.util.ResourceManager.getInstance().toUri(res);
       var loader = new qx.bom.request.Script();
-      loader.onload = function() {
+      loader.onload = function () {
         clb.call(ctx);
       };
       loader.open("GET", uri);
@@ -130,34 +126,54 @@ qx.Class.define("qxl.tutorial.view.Description",
       qx.bom.Stylesheet.includeFile(uri);
     },
 
-    updateView : function() {
+    updateView() {
       if (!this.getTutorial()) {
         return;
       }
-      var headline = "<p style='font-size: 2em; font-weight: bold;'>" + this.getTutorial().name.replace(/_/g, " ") + "</p>";
-      var step = "<p style='margin-top: -10px; font-size: 11px; color: #CCC;'>Step " + (this.getStep() + 1) + "/" + this.getTutorial().steps.length + "</p>";
+      var headline =
+        "<p style='font-size: 2em; font-weight: bold;'>" +
+        this.getTutorial().name.replace(/_/g, " ") +
+        "</p>";
+      var step =
+        "<p style='margin-top: -10px; font-size: 11px; color: #CCC;'>Step " +
+        (this.getStep() + 1) +
+        "/" +
+        this.getTutorial().steps.length +
+        "</p>";
       var html = headline + step + this.getTutorial().steps[this.getStep()];
 
       this.__embed.setHtml(html);
       qx.html.Element.flush();
 
-      q(this.__embed.getContentElement().getDomElement()).getChildren("pre").setStyles({
-        color: "#262626",
-        backgroundColor: "#EEE",
-        borderRadius : "4px",
-        padding: "7px"
-      }).filter("pre").forEach(function(el) {
-        q(el).addClass("javascript");
-        window.hljs && window.hljs.highlightBlock(el);
-      });
+      q(this.__embed.getContentElement().getDomElement())
+        .getChildren("pre")
+        .setStyles({
+          color: "#262626",
+          backgroundColor: "#EEE",
+          borderRadius: "4px",
+          padding: "7px",
+        })
+        .filter("pre")
+        .forEach(function (el) {
+          q(el).addClass("javascript");
+          window.hljs && window.hljs.highlightBlock(el);
+        });
     },
 
-
-    __createButtonContainer : function() {
-      var pref = new qx.ui.toolbar.Button(null, "icon/22/actions/media-skip-backward.png");
+    __createButtonContainer() {
+      var pref = new qx.ui.toolbar.Button(
+        null,
+        "icon/22/actions/media-skip-backward.png"
+      );
       var update = new qx.ui.toolbar.Button("Help me out");
-      var run = new qx.ui.toolbar.Button("Run", "icon/22/actions/media-playback-start.png");
-      var next = new qx.ui.toolbar.Button(null, "icon/22/actions/media-skip-forward.png");
+      var run = new qx.ui.toolbar.Button(
+        "Run",
+        "icon/22/actions/media-playback-start.png"
+      );
+      var next = new qx.ui.toolbar.Button(
+        null,
+        "icon/22/actions/media-skip-forward.png"
+      );
       this.__next = next;
 
       // tooltips
@@ -187,28 +203,51 @@ qx.Class.define("qxl.tutorial.view.Description",
 
       // enabled for next / pref
       var self = this;
-      this.bind("step", pref, "enabled", {converter : function(data) {
-        return data > 0;
-      }});
-      this.bind("step", next, "enabled", {converter : function(data) {
-        return Boolean(self.getTutorial()) && data < self.getTutorial().steps.length - 1;
-      }});
+      this.bind("step", pref, "enabled", {
+        converter(data) {
+          return data > 0;
+        },
+      });
+      this.bind("step", next, "enabled", {
+        converter(data) {
+          return (
+            Boolean(self.getTutorial()) &&
+            data < self.getTutorial().steps.length - 1
+          );
+        },
+      });
 
       // next, pref control
-      pref.addListener("execute", function() {
-        this.setStep(this.getStep() - 1);
-      }, this);
-      next.addListener("execute", function() {
-        this.setStep(this.getStep() + 1);
-      }, this);
+      pref.addListener(
+        "execute",
+        function () {
+          this.setStep(this.getStep() - 1);
+        },
+        this
+      );
+      next.addListener(
+        "execute",
+        function () {
+          this.setStep(this.getStep() + 1);
+        },
+        this
+      );
 
       // run / update events
-      run.addListener("execute", function() {
-        this.fireEvent("run");
-      }, this);
-      update.addListener("execute", function() {
-        this.fireDataEvent("update", this.getTutorial().code[this.getStep()]);
-      }, this);
+      run.addListener(
+        "execute",
+        function () {
+          this.fireEvent("run");
+        },
+        this
+      );
+      update.addListener(
+        "execute",
+        function () {
+          this.fireDataEvent("update", this.getTutorial().code[this.getStep()]);
+        },
+        this
+      );
 
       // container
       var container = new qx.ui.container.Composite();
@@ -222,6 +261,6 @@ qx.Class.define("qxl.tutorial.view.Description",
       container.add(next);
 
       return container;
-    }
-  }
+    },
+  },
 });

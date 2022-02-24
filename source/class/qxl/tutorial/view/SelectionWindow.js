@@ -19,13 +19,11 @@
 /**
  * @ignore(tutorial)
  */
-qx.Class.define("qxl.tutorial.view.SelectionWindow",
-{
-  extend : qx.ui.window.Window,
+qx.Class.define("qxl.tutorial.view.SelectionWindow", {
+  extend: qx.ui.window.Window,
 
-
-  construct : function(desktopTutorials, mobileTutorials) {
-    this.base(arguments, "Select Tutorial");
+  construct(desktopTutorials, mobileTutorials) {
+    super("Select Tutorial");
 
     // configure window
     this.setModal(true);
@@ -37,67 +35,85 @@ qx.Class.define("qxl.tutorial.view.SelectionWindow",
     this.setLayout(new qx.ui.layout.Grid(10, 5));
     this.getLayout().setRowAlign(0, "center", "top");
 
-    this.__buttonFont = new qx.bom.Font(12, ["Lucida Grande", "DejaVu Sans", "Verdana", "sans-serif"]);
+    this.__buttonFont = new qx.bom.Font(12, [
+      "Lucida Grande",
+      "DejaVu Sans",
+      "Verdana",
+      "sans-serif",
+    ]);
     this.__buttonFont.set({
       color: "font",
-      lineHeight: 1.3
+      lineHeight: 1.3,
     });
 
     // build the headlines
     var desktop = new qx.ui.basic.Label("Desktop");
     desktop.setFont("bold");
-    this.add(desktop, {row: 0, column: 0});
+    this.add(desktop, { row: 0, column: 0 });
 
     var mobileSupported = qxl.tutorial.Application.mobileSupported();
     var title = "Mobile" + (mobileSupported ? "" : " (unsupported browser)");
     var mobile = new qx.ui.basic.Label(title);
     mobile.setFont("bold");
-    this.add(mobile, {row: 0, column: 1});
+    this.add(mobile, { row: 0, column: 1 });
 
     this.__buildSelection(desktopTutorials, mobileTutorials);
 
     this.center();
   },
 
-  events : {
-    "changeTutorial" : "qx.event.type.Data"
+  events: {
+    changeTutorial: "qx.event.type.Data",
   },
 
-  members :
-  {
-    __buttonFont : null,
+  members: {
+    __buttonFont: null,
 
-    __createButton : function(name, desc) {
+    __createButton(name, desc) {
       var button = new qx.ui.form.Button(
-        name + "<br><span style='font-size: 11px; color: #777'>" + (desc || "&nbsp;") + "</span>"
+        name +
+          "<br><span style='font-size: 11px; color: #777'>" +
+          (desc || "&nbsp;") +
+          "</span>"
       );
+
       button.set({
         rich: true,
         width: 200,
         font: this.__buttonFont,
-        center: false
+        center: false,
       });
+
       return button;
     },
 
-
-    __buildSelection : function(desktopTutorials, mobileTutorials) {
+    __buildSelection(desktopTutorials, mobileTutorials) {
       var i = 0;
       for (var key in desktopTutorials) {
         let name = key.replace(/_/g, " ");
         let desc = desktopTutorials[key];
         let button = this.__createButton(name, desc);
-        this.add(button, {row: i + 1, column: 0});
-        button.addListener("execute", (function(name) {
-          this.fireDataEvent("changeTutorial", {name: name, type: "desktop"});
-          if (qxl.tutorial.Application.allowFade()) {
-            this.fadeOut(300).on("end", function() {
+        this.add(button, { row: i + 1, column: 0 });
+        button.addListener(
+          "execute",
+          function (name) {
+            this.fireDataEvent("changeTutorial", {
+              name: name,
+              type: "desktop",
+            });
+            if (qxl.tutorial.Application.allowFade()) {
+              this.fadeOut(300).on(
+                "end",
+                function () {
+                  this.close();
+                },
+                this
+              );
+            } else {
               this.close();
-            }, this);
-          } else {
-            this.close();
-          }
-        }).bind(this, key));
+            }
+          }.bind(this, key)
+        );
         i++;
       }
 
@@ -107,24 +123,34 @@ qx.Class.define("qxl.tutorial.view.SelectionWindow",
         let name = key.replace(/_/g, " ");
         let desc = mobileTutorials[key];
         let button = this.__createButton(name, desc);
-        this.add(button, {row: i + 1, column: 1});
+        this.add(button, { row: i + 1, column: 1 });
         if (supportsMobile) {
-          button.addListener("execute", (function(name) {
-            this.fireDataEvent("changeTutorial", {name: name, type: "mobile"});
-            if (qxl.tutorial.Application.allowFade()) {
-              this.fadeOut(300).on("end", function() {
+          button.addListener(
+            "execute",
+            function (name) {
+              this.fireDataEvent("changeTutorial", {
+                name: name,
+                type: "mobile",
+              });
+              if (qxl.tutorial.Application.allowFade()) {
+                this.fadeOut(300).on(
+                  "end",
+                  function () {
+                    this.close();
+                  },
+                  this
+                );
+              } else {
                 this.close();
-              }, this);
-            } else {
-              this.close();
-            }
-          }).bind(this, key));
+              }
+            }.bind(this, key)
+          );
         } else {
           button.setEnabled(false);
           button.setToolTipText("Not supported on your browser.");
         }
         i++;
       }
-    }
-  }
+    },
+  },
 });

@@ -15,12 +15,11 @@
      * Martin Wittemann (wittemann)
 
 ************************************************************************ */
-qx.Class.define("qxl.tutorial.view.Confirm",
-{
-  extend : qx.ui.window.Window,
+qx.Class.define("qxl.tutorial.view.Confirm", {
+  extend: qx.ui.window.Window,
 
-  construct : function(desktopTutorials, mobileTutorials) {
-    this.base(arguments, "Confirm");
+  construct(desktopTutorials, mobileTutorials) {
+    super("Confirm");
 
     // configure window
     this.setModal(true);
@@ -39,76 +38,91 @@ qx.Class.define("qxl.tutorial.view.Confirm",
     this.__meassage.setFont("bold");
     this.__meassage.set({
       rich: true,
-      wrap: true
+      wrap: true,
     });
-    this.add(this.__meassage, {row: 0, column: 0, colSpan: 3});
+
+    this.add(this.__meassage, { row: 0, column: 0, colSpan: 3 });
 
     // ignore checkbox
     var ignoreBox = new qx.ui.form.CheckBox("Remember my answer");
-    this.add(ignoreBox, {row: 1, column: 0});
+    this.add(ignoreBox, { row: 1, column: 0 });
     ignoreBox.bind("value", this, "ignore");
 
     // cancel button
     var cancelButton = new qx.ui.form.Button("Cancel");
     cancelButton.setWidth(80);
-    this.add(cancelButton, {row: 1, column: 1});
-    cancelButton.addListener("execute", function() {
-      if (qxl.tutorial.Application.allowFade()) {
-        this.fadeOut(300).on("end", function() {
+    this.add(cancelButton, { row: 1, column: 1 });
+    cancelButton.addListener(
+      "execute",
+      function () {
+        if (qxl.tutorial.Application.allowFade()) {
+          this.fadeOut(300).on(
+            "end",
+            function () {
+              this.close();
+              this.fireDataEvent("confirm", false);
+            },
+            this
+          );
+        } else {
           this.close();
           this.fireDataEvent("confirm", false);
-        }, this);
-      } else {
-        this.close();
-        this.fireDataEvent("confirm", false);
-      }
-    }, this);
-    ignoreBox.bind("value", cancelButton, "enabled", {converter : function(data) {
-      return !data;
-    }});
+        }
+      },
+      this
+    );
+    ignoreBox.bind("value", cancelButton, "enabled", {
+      converter(data) {
+        return !data;
+      },
+    });
 
     // ok button
     var okButton = new qx.ui.form.Button("Ok");
     okButton.setWidth(80);
-    this.add(okButton, {row: 1, column: 2});
-    okButton.addListener("execute", function() {
-      if (qxl.tutorial.Application.allowFade()) {
-        this.fadeOut(300).on("end", function() {
+    this.add(okButton, { row: 1, column: 2 });
+    okButton.addListener(
+      "execute",
+      function () {
+        if (qxl.tutorial.Application.allowFade()) {
+          this.fadeOut(300).on(
+            "end",
+            function () {
+              this.close();
+              this.fireDataEvent("confirm", true);
+            },
+            this
+          );
+        } else {
           this.close();
           this.fireDataEvent("confirm", true);
-        }, this);
-      } else {
-        this.close();
-        this.fireDataEvent("confirm", true);
-      }
-    }, this);
-    okButton.addListener("appear", function() {
+        }
+      },
+      this
+    );
+    okButton.addListener("appear", function () {
       okButton.focus();
     });
 
     this.center();
   },
 
-
-  properties : {
-    ignore : {
-      check : "Boolean",
-      event : "changeIgnore"
-    }
+  properties: {
+    ignore: {
+      check: "Boolean",
+      event: "changeIgnore",
+    },
   },
 
-
-  events : {
-    "confirm" : "qx.event.type.Data"
+  events: {
+    confirm: "qx.event.type.Data",
   },
 
-  members :
-  {
-    __meassage : null,
+  members: {
+    __meassage: null,
 
-
-    setMessage : function(text) {
+    setMessage(text) {
       this.__meassage.setValue(text);
-    }
-  }
+    },
+  },
 });

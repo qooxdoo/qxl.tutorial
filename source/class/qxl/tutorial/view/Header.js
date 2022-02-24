@@ -19,19 +19,18 @@
 /**
  * The Application's header
  */
-qx.Class.define("qxl.tutorial.view.Header",
-{
-  extend : qx.ui.container.Composite,
+qx.Class.define("qxl.tutorial.view.Header", {
+  extend: qx.ui.container.Composite,
 
-  events : {
-    "selectTutorial" : "qx.event.type.Event"
+  events: {
+    selectTutorial: "qx.event.type.Event",
   },
 
   /**
    * @ignore(qxc)
    */
-  construct : function() {
-    this.base(arguments);
+  construct() {
+    super();
 
     this.setLayout(new qx.ui.layout.Canvas());
     this.setAppearance("app-header");
@@ -41,14 +40,18 @@ qx.Class.define("qxl.tutorial.view.Header",
     select.setToolTipText("Choose another tutorial");
     select.setFont("default");
     select.setTextColor("black");
-    select.addListener("execute", function() {
-      this.fireEvent("selectTutorial");
-    }, this);
+    select.addListener(
+      "execute",
+      function () {
+        this.fireEvent("selectTutorial");
+      },
+      this
+    );
     var version = new qxl.versionlabel.VersionLabel();
     version.setFont("default");
 
-    this.add(title, {left: 10, top: 5});
-    this.add(select, {left: "40%", right: "40%"});
-    this.add(version, {right: 10, top: 3});
-  }
+    this.add(title, { left: 10, top: 5 });
+    this.add(select, { left: "40%", right: "40%" });
+    this.add(version, { right: 10, top: 3 });
+  },
 });
